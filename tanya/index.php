@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Viewr</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <script scr="js/bootstrap.js"></script> </head>
+    </head>
     <body style="margin:50px 70px 70px 70px; background: rgb(240,241,255);
 background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 22%, rgba(255,255,255,1) 100%);">
 <ul class="nav nav-tabs" style="margin:0 0 50px 0; font-size:1.2rem; display:flex">
@@ -26,10 +26,35 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
     <a class="nav-link active" aria-current="page" href="view.php">view</a>
   </li>
 </ul>
-
+ <?php 
+ $message = isset(($_GET["message"])) ? $_GET["message"] : "n";
+if($message == "n") {}
+else if($message == "success")
+{
+  ?>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Your Record Has been added to Database
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeMe()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  <?php
+}
+else 
+{
+  ?>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> Your Record Has not been added to Database
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeMe()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    <?php
+}
+ ?>
     <form  class="form" action="create.php" style="font-size: 20px;" method="post"  enctype="multipart/form-data">
         
-        <div class="mb-2">
+        <div class="mb-3">
         <label class="form-label"  for="forCo">For Company</label>
         <input style="width:500px;" class="form-control" type="text" name="forCo" id="forCo">
         </div>
@@ -68,7 +93,7 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
         <label   class="form-label" for="cost">Cost</label>
 
         <div style="display:flex; width:1000px">
-        <input class="form-control" type="currency"  name="cost" style="width:500px; folat:left margin-right:20px;  " id="cost">
+        <input class="form-control" type="number" step="any"  name="cost" style="width:500px; folat:left margin-right:20px;  " id="cost">
         <select style=" margin-left:50px; width:200px; float:right" name="currency"  class="form-control ">
           <option value="dolar">Dolar $</option>
           <option value="dinar">Dinar IQD</option>
@@ -98,4 +123,12 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
      
     </form>
 </body>
+<script >
+function closeMe()
+{
+  document.getElementsByClassName('alert')[0].style.visibility='hidden';
+
+}
+</script> 
+
 </html>
