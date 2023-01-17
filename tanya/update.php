@@ -19,12 +19,21 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
    <h2 style="color:#0d6efd">Invoice Tracker</h2>
   </li>
 
+  <li class="nav-item" style="padding:0 100px 0 0">
+   <h2 style="color:#0d6efd">Invoice Tracker</h2>
+  </li>
+
   <li class="nav-item">
     <a class="nav-link "  href="index.php">Create</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="view.php">view</a>
+    <a class="nav-link " aria-current="page" href="view.php">Main</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link " aria-current="page" href="payed.php">Payed</a>
+  </li>
+
+
 </ul>
 
 <?php

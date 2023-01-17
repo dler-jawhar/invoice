@@ -19,7 +19,7 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
 <ul class="nav nav-tabs" style="margin:0 0 50px 0; font-size:1.2rem; display:flex">
   
 
-<li class="nav-item" style="padding:0 100px 0 0">
+  <li class="nav-item" style="padding:0 100px 0 0">
    <h2 style="color:#0d6efd">Invoice Tracker</h2>
   </li>
 
@@ -27,13 +27,11 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
     <a class="nav-link "  href="index.php">Create</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="view.php">Main</a>
+    <a class="nav-link " aria-current="page" href="view.php">Main</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " aria-current="page" href="payed.php">Payed</a>
+    <a class="nav-link active" aria-current="page" href="payed.php">Payed</a>
   </li>
-
-  <style>
 
   <style>
 
@@ -159,7 +157,7 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
       $offset = ($page - 1) * $num_rows_per_page;
       
       // Query the database
-      $result = mysqli_query($conn, "SELECT * FROM main where state !='payed' order by number DESC LIMIT  $num_rows_per_page OFFSET $offset");
+      $result = mysqli_query($conn, "SELECT * FROM main  where state like 'payed' order by number DESC LIMIT  $num_rows_per_page OFFSET $offset");
       
       // Loop through the rows and display them
       while ($row = mysqli_fetch_assoc($result)) {
@@ -243,10 +241,12 @@ background: radial-gradient(circle, rgba(240,241,255,1) 0%, rgba(248,254,255,1) 
       </table> 
     
       ';
-     
-
+      $query5 = "SELECT SUM(cost) as total FROM main";
+      $result = mysqli_query($conn, $query5);
+      $row = mysqli_fetch_assoc($result);
+      echo $row['total'];
       // Calculate the total number of pages
-      $total_pages = ceil(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM main where state != 'payed'")) / $num_rows_per_page);
+      $total_pages = ceil(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM main where state like 'payed'")) / $num_rows_per_page);
       
       // Display the pagination links
     
@@ -285,11 +285,7 @@ if ($page < $total_pages) {
   echo "<li class='page-item'>";
   echo "<a class='page-link' href='?page=" . ($page + 1) . "' aria-label='Next'>";
   echo "<span aria-hidden='true'>&raquo;</span>";
-  echo "<span class='sr-only'>Next</span>";
-  echo "</a>";
-  echo "</li>";
-  echo "</nav>";
-  echo "</ul>";}
+  echo "<span class='sr-only'>Next</span>";}
         ?>
         
      
@@ -309,23 +305,21 @@ function createPopup(id) {
   }
 
 </script>
-<?php
 
-SELECT * FROM main where state !='payed' order by number DESC LIMIT  $num_rows_per_page OFFSET $offset
-$query5 = "SELECT SUM(cost)  as totaldolar FROM main where currency like 'dolar'";
-$query6 = "SELECT SUM(cost)  as totaldianr FROM main where currency like 'dinar'";
-      $result = mysqli_query($conn, $query5);
-      $result2 = mysqli_query($conn, $query6);
-      $row = mysqli_fetch_assoc($result);
-      $row2 = mysqli_fetch_assoc($result2);
-      ?>
+<!-- // <form method='post' action='delete.php'>
+                  //   <input type='hidden' name='id' value='$id'>
+                  //   <input class='btn btn-sm btn-danger' style='background-color:#E67676' type='submit' width value='Delete'>
+                  // </form> -->
 
-<div style=" display: flex; 
-               margin-top:50px;
-                justify-content: space-around; 
-                background-color:#ebfcff;
-                color:#3E4756; ">
-<h4>Total Dolar = <?php echo $row['totaldolar']?></h3>
-<h4>Total Dinar = <?php echo $row2['totaldianr']?></h3>
-</div>
+<!-- <script>
+let myTable = document.getElementById('table');
+
+for (let row of myTable.rows) {
+  if(row.cells[6] == "inProcess")
+    row.cells[6].classList.add("bg-primary");
+    for(let cell of row.cells){
+       console.log(cell.innerText);
+    }
+}
+</script> -->
 </html>
