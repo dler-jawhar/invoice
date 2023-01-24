@@ -9,12 +9,12 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body style="background: rgb(2,0,36);
+<body style="background: black">
+ <!-- rgb(2,0,36);
 background: -moz-radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 background: -webkit-radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020024',endColorstr='#00d4ff',GradientType=1);">
-
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020024',endColorstr='#00d4ff',GradientType=1); -->
 
 <div class="container" style="margin-top:18%; color:white;">
   <div class="row h-300" >

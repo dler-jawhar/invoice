@@ -59,14 +59,29 @@ else
  ?>
     <form  class="form" action="create.php" style="font-size: 20px;" method="post"  enctype="multipart/form-data">
         
-        <div class="mb-3">
+       
+
+        <div class="mb-3">    
         <label class="form-label"  for="forCo">For Company</label>
-        <input style="width:500px;" class="form-control" type="text" name="forCo" id="forCo">
+        <select  name="forCo" style="width:500px;" class="form-control ">
+          <option value="Hawkary">Hawkary</option>
+          <option value="Mera">Mera</option>
+          <option value="Med">Med</option>
+          <option value="Hikma">Hikma</option>
+          <option value="Desma">Desma</option>
+          <option value="UPM">UPM</option>
+          <option value="Philadelphia">Philadelphia</option>
+          <option value="Micro">Micro</option>
+          <option value="Ajenta">Ajenta</option>
+          <option value="Viatris">Viatris</option>
+          <option value="SunPharma">SunPharma</option>
+          <option value="Others">Others</option>
+        </select>
         </div>
 
         <div class="mb-3">
-        <label  for="printCo">Print Company</label>
-        <input style="width:500px;" class="form-control" type="text" name="printCo" id="printCo">
+        <label class="form-label"  for="printCo">Print Company</label>
+        <input style="width:500px;" class="form-control" type="text" name="printCo" id="forCo">
         </div>
 
         <div class="mb-3">

@@ -103,8 +103,8 @@ $stmt->fetch();
 
         <div style="display:flex; width:1000px">
         <input class="form-control" type="currency" name="cost" style="width:500px; folat:left margin-right:20px;  " id="cost" value="<?php echo $cost  ?>">
-        <select style=" margin-left:50px; width:200px; float:right" class="form-control "?>">
-          <option value="<?php echo $currency?>">As it's <?php echo $currency?></option>
+        <select  name="currency" style=" margin-left:50px; width:200px; float:right" class="form-control "?>">
+          <option  value="<?php echo $currency?>">As it's <?php echo $currency?></option>
           <option value="dolar">Dolar $</option>
           <option value="dinar">Dinar IQD</option>
         </select>
